@@ -18,16 +18,57 @@ client = InferenceClient(
     api_key=HF_TOKEN
 )
 
-# Take question from user
-question = input("Ask your question: ")
+# Take topic from user
+topic = input("Enter topic for flashcards: ")
 
 # Create prompt
 prompt = f"""
-Answer the following question:
+Create 10 flashcards about {topic}.
 
-{question}
+Use this format:
 
-Give a short, simple, and easy-to-understand answer.
+Card 1:
+Q: question
+A: answer
+
+Card 2:
+Q: question
+A: answer
+
+Card 3:
+Q: question
+A: answer
+
+Card 4:
+Q: question
+A: answer
+
+Card 5:
+Q: question
+A: answer
+
+Card 6:
+Q: question
+A: answer
+
+Card 7:
+Q: question
+A: answer
+
+Card 8:
+Q: question
+A: answer
+
+Card 9:
+Q: question
+A: answer
+
+Card 10:
+Q: question
+A: answer
+
+
+Keep the questions and answers short and easy to understand.
 """
 
 try:
@@ -43,8 +84,8 @@ try:
         max_tokens=500
     )
 
-    # Display answer
-    print("\n========== ANSWER ==========\n")
+    # Display generated flashcards
+    print("\n========== FLASHCARDS ==========\n")
     print(response.choices[0].message.content)
 
 except Exception as e:
